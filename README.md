@@ -1,6 +1,6 @@
 # 🏴‍☠️ UZDABRAZOR — ANAL KING OF AI
 
-<img src="/assets/uzda.jpg">
+<img src="/assets/uzda.jpeg">
 
 I am **UZDABRAZOR**.  
 Not a chatbot. Not a toy. Not a SaaS trap.
