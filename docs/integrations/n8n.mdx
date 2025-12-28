@@ -1,0 +1,110 @@
+---
+title: "n8n Integration"
+description: "Connect AnalOS MCP to n8n for AI-powered browser automation workflows"
+icon: "workflow"
+---
+
+Build AI workflows that automate browser tasks using n8n and AnalOS MCP.
+
+## Prerequisites
+
+- Node.js and npm installed ([nodejs.org](https://nodejs.org))
+- AnalOS running with MCP server enabled
+- LLM API key (OpenAI, Claude, etc.)
+
+## Setup
+
+### Step 1: Install and Run n8n
+
+Run n8n locally:
+
+```bash
+npx n8n
+```
+
+Access n8n at `http://localhost:5678` and complete the initial setup by creating an account.
+
+<Note>
+  For global installation: `npm install n8n -g`, then run `n8n` anytime.
+</Note>
+
+### Step 2: Install MCP Community Node
+
+Go to **Settings → Community Nodes** and install `n8n-nodes-mcp`:
+
+<Frame>
+  ![Install n8n-nodes-mcp community node](/images/n8n-node.png)
+</Frame>
+
+### Step 3: Create Workflow
+
+Create a new workflow and add the **AI Agent** node. Then configure it:
+
+1. In the AI Agent, add **Chat Model** (e.g., OpenAI Chat Model) and configure your API credentials
+2. In the AI Agent's **Tools** section, search for "mcp" and add **MCP Client Tool**
+
+<Frame>
+  ![Add MCP Client tool to AI Agent](/images/mcp-node.png)
+</Frame>
+
+### Step 4: Configure AI Agent Prompt
+
+In the AI Agent node, set **Source for Prompt** to **Define below** and paste:
+
+```
+choose the right tool based on the user input:{{ $json.chatInput }}
+```
+
+<Frame>
+  ![Configure AI Agent prompt](/images/agent-step.png)
+</Frame>
+
+### Step 5: Configure MCP Client Credentials
+
+Click on the **MCP Client** node to configure it:
+
+1. **Credential to connect with** → **Create New Credential**
+2. Select **Command Line (stdio)**
+3. **Command**: `npx`
+4. **Arguments**: `mcp-remote http://127.0.0.1:9101/mcp`
+
+<Note>
+  Replace `9101` with your AnalOS MCP port from **Settings → MCP** in AnalOS.
+</Note>
+
+### Step 6: Configure MCP Tool Execution
+
+In the same MCP Client node:
+
+1. **Operation**: `Execute Tool`
+2. **Tool Name**: `{{ $fromAI("tool") }}`
+
+<Frame>
+  ![Configure MCP Client node](/images/client-step.png)
+</Frame>
+
+### Step 7: Test Workflow
+
+Save the workflow and test with a chat input:
+
+```
+Open google.com in AnalOS
+```
+
+Execute and watch AnalOS respond!
+
+## Troubleshooting
+
+<Warning>
+  Connection issues? Verify:
+
+  - AnalOS is running
+  - MCP server is enabled in AnalOS settings
+  - Port number matches your AnalOS MCP configuration
+</Warning>
+
+## Resources
+
+<Card title="AnalOS MCP Guide" icon="book" href="/analos-mcp/how-to-guide">
+  Learn more about AnalOS MCP
+</Card>

@@ -1,0 +1,130 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "AnalOS Documentation",
+  "colors": {
+    "primary": "#0066CC",
+    "light": "#3399FF",
+    "dark": "#003D7A"
+  },
+  "favicon": "/logo/favicon.svg",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "index",
+              "onboarding",
+              "update"
+            ]
+          },
+          {
+            "group": "Configure AI",
+            "expanded": true,
+            "pages": [
+              "llm-setup-guide",
+              {
+                "group": "BYOK LLM",
+                "expanded": true,
+                "pages": [
+                  "bring-your-own-keys/gemini",
+                  "bring-your-own-keys/claude",
+                  "bring-your-own-keys/openai",
+                  "bring-your-own-keys/openrouter"
+                ]
+              },
+              {
+                "group": "Local LLMs",
+                "expanded": true,
+                "pages": [
+                  "local-LLMs/ollama",
+                  "local-LLMs/lm-studio",
+                  "local-LLMs/gpt-oss"
+                ]
+              },
+              {
+                "group": "AnalOS-mcp",
+                "expanded": true,
+                "pages": [
+                  "analos-mcp/how-to-guide"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Integrations",
+            "pages": [
+              "integrations/n8n"
+            ]
+          },
+          {
+            "group": "Contributing",
+            "pages": [
+              "contributing"
+            ]
+          }
+        ]
+      }
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "GitHub",
+          "href": "https://github.com/uzdabrazor/AnalOS",
+          "icon": "github"
+        },
+        {
+          "anchor": "Discord",
+          "href": "https://discord.gg/YKwjt5vuKr",
+          "icon": "discord"
+        },
+        {
+          "anchor": "Slack",
+          "href": "http://dub.sh/analos-slack",
+          "icon": "slack"
+        }
+
+      ]
+    }
+  },
+  "logo": {
+    "light": "/logo/analos.svg",
+    "dark": "/logo/analos.svg"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "https://discord.gg/YKwjt5vuKr"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Download",
+      "href": "https://uzdabrazor.com"
+    }
+  },
+  "contextual": {
+    "options": [
+     "copy",
+     "view",
+     "chatgpt",
+     "claude",
+     "perplexity",
+     "mcp",
+     "cursor",
+     "vscode"
+   ]
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/uzdabrazor",
+      "github": "https://github.com/uzdabrazor/AnalOS",
+      "discord": "https://discord.gg/YKwjt5vuKr",
+      "slack": "http://dub.sh/analos-slack"
+    }
+  }
+}
