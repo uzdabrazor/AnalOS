@@ -12,6 +12,8 @@ No cloud babysitter. No fake demos. No corporate browser bullshit.
 This browser does not suggest.  
 It does.
 
+<img src="/assets/1.jpg"><img src="/assets/2.jpg">
+
 ---
 
 ## WHAT ANALOS IS
